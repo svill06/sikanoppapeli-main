@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sika Peli</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Sika Peli 🎲</h1>
+    
+    <div id="setup">
+        <h2>Asetukset</h2>
+        <label for="player-count">Pelaajien määrä:</label>
+        <select id="player-count" onchange="generatePlayerInputs()">
+            <option value="2">2 Pelaajaa</option>
+            <option value="3">3 Pelaajaa</option>
+            <option value="4">4 Pelaajaa</option>
+        </select>
+        
+        <div id="player-names">
+            <input type="text" id="player1" placeholder="Pelaaja 1">
+            <input type="text" id="player2" placeholder="Pelaaja 2">
+        </div>
+        
+        <label for="dice-count">Noppien määrä:</label>
+        <select id="dice-count">
+            <option value="1">1 Noppa</option>
+            <option value="2">2 Noppaa</option>
+        </select>
+        
+        <button onclick="startGame()">Aloita peli</button>
+    </div>
+
+    <div id="game-info" style="display: none;">
+        <h2>Vuoro: <span id="current-player"></span></h2>
+        <p>Viime heitto: <span id="last-roll">-</span></p>
+        <p>Vuoropisteet: <span id="turn-score">0</span></p>
+        <button onclick="rollDice()">Heitä noppaa</button>
+        <button onclick="holdTurn()">Pidä pisteet</button>
+        <p id="message"></p>
+    </div>
+
+    <div id="scoreboard" style="display: none;">
+        <h2>Tulostaulu</h2>
+        <ul id="score-list"></ul>
+    </div>
+
+    <div id="winner-announcement" style="display: none;">
+        <h2 id="winner-message"></h2>
+        <button onclick="resetGame()">Pelaa uudelleen</button>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
