@@ -131,3 +131,4 @@ function resetGame() {
     doubleCount = 0;
     document.getElementById("turn-score").innerText = turnScore;
 }
+#ok
