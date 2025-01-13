@@ -45,8 +45,10 @@ function rollDice() {
     }
 
     const [die1, die2] = rolls;
-
+    document.getElementById("last-roll").innerText = `Heitit: ${rolls.join(", ")}`;
     if (diceCount === 2) {
+        console.log(die1, die2);
+        
         if (die1 === 1 && die2 === 1) {
             turnScore += 25;
             document.getElementById("message").innerText = "Tuplat ykköset! 25 pistettä!";
@@ -58,7 +60,7 @@ function rollDice() {
         } else if (die1 === die2) {
             doubleCount++;
             turnScore += (die1 + die2) * 2;
-            document.getElementById("message").innerText = `Tuplat! Saat ${turnScore} pistettä!`;
+            document.getElementById("message").innerText = `Tuplat! Saat ${(die1+die2) * 2 } pistettä!`;
 
             if (doubleCount === 3) {
                 turnScore = 0;
@@ -74,14 +76,14 @@ function rollDice() {
         if (die1 === 1) {
             turnScore = 0;
             document.getElementById("message").innerText = "Hups! Heitit 1, vuoro päättyy!";
-            setTimeout(endTurn, 1500);
+            endTurn();
             return;
         }
         turnScore += die1;
     }
 
     document.getElementById("turn-score").innerText = turnScore;
-    document.getElementById("last-roll").innerText = `Heitit: ${rolls.join(", ")}`;
+    
 }
 
 function holdTurn() {
@@ -131,4 +133,3 @@ function resetGame() {
     doubleCount = 0;
     document.getElementById("turn-score").innerText = turnScore;
 }
-#ok
